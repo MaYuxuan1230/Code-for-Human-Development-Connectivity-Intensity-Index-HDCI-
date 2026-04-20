@@ -1,0 +1,55 @@
+years:
+  start: 1990
+  end: 2024
+
+sampling:
+  sample_n_per_year: 80000
+  seed: 20260324
+
+bootstrap:
+  run: true
+  n_reps: 300
+  max_points_per_year: 60000
+  block_size_lonlat: 2
+  block_size_projected: 200000
+
+mer:
+  within_lambda: 0.01
+  between_lambda: 0.01
+  eps: 0.001
+  candidate_weights: [0.5, 0.5]
+
+fixed:
+  between_lambda: 0.01
+  group_lambda:
+    Group_1: 0.01
+    Group_2: 0.03
+
+output_dir: "path/to/output"
+
+variables:
+  Cropland:
+    dir: "path/to/cropland"
+    pattern: "{year}.tif"
+  BuiltUp:
+    dir: "path/to/builtup"
+    pattern: "{year}.tif"
+  Population:
+    dir: "path/to/population"
+    pattern: "{year}人口.tif"
+  NTL:
+    dir: "path/to/ntl"
+    pattern: "{year}.tif"
+  Road:
+    dir: "path/to/road"
+    pattern: "{year}.tif"
+  Railway:
+    dir: "path/to/railway"
+    pattern: "{year}.tif"
+  Reservoir:
+    dir: "path/to/reservoir"
+    pattern: "{year}.tif"
+
+groups:
+  Group_1: ["Cropland", "Population", "Reservoir"]
+  Group_2: ["BuiltUp", "NTL", "Road", "Railway"]
